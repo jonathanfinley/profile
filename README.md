@@ -9,5 +9,4 @@
 - 🤔 I’m looking for help with ... how to get rid of COVID-19
 - 💬 Ask me about ...
 - 📫 How to reach me: ... me@jonathanfinley.net
-- 😄 Pronouns: ... ME/MY/MINE
 - ⚡ Fun fact: ... I like Apple Products.
