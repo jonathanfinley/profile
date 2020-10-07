@@ -1,0 +1,30 @@
+[
+  {
+    "emailtitle": "Sample Email",
+    "request": 41,
+    "delivered": 41,
+    "open": 2,
+    "unique_open": 1,
+    "click": 1,
+    "unique_click": 1,
+    "unsubscribe": 1,
+    "bounces": 0,
+    "spam_report": 1,
+    "blocks": 0
+
+  },
+  {
+    "emailtitle": "Sample Email 2",
+    "request": 431,
+    "delivered": 431,
+    "open": 221,
+    "unique_open": 13,
+    "click": 31,
+    "unique_click": 51,
+    "unsubscribe": 11,
+    "bounces": 0,
+    "spam_report": 112,
+    "blocks": 6
+
+  }
+]
