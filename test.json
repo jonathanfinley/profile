@@ -1,6 +1,6 @@
 [
   {
-    "emailtitle": "Sample Email",
+    "emailtitle": "Test Email",
     "request": 41,
     "delivered": 41,
     "open": 2,
@@ -14,7 +14,7 @@
 
   },
   {
-    "emailtitle": "Sample Email 2",
+    "emailtitle": "Welcome to Guru Solutions",
     "request": 431,
     "delivered": 431,
     "open": 221,
