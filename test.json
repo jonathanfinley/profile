@@ -26,5 +26,33 @@
     "spam_report": 112,
     "blocks": 6
 
+  },
+    {
+    "emailtitle": "Quartile Reports",
+    "request": 86,
+    "delivered": 80,
+    "open": 45,
+    "unique_open": 25,
+    "click": 0,
+    "unique_click": 1,
+    "unsubscribe": 10,
+    "bounces": 6,
+    "spam_report": 7,
+    "blocks": 0
+
+  },
+  {
+    "emailtitle": "Pizza Night",
+    "request": 431,
+    "delivered": 431,
+    "open": 221,
+    "unique_open": 13,
+    "click": 31,
+    "unique_click": 51,
+    "unsubscribe": 11,
+    "bounces": 0,
+    "spam_report": 112,
+    "blocks": 6
+
   }
 ]
