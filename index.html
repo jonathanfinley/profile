@@ -1,0 +1,423 @@
+<html>
+
+
+<head>
+
+    <style type="text/css">
+        table { 
+            margin: 0 auto; 
+            font-size: large; 
+            border: 1px solid black; 
+        } 
+  
+        h1 { 
+            text-align: center; 
+            color: #006600; 
+            font-size: xx-large; 
+            font-family: 'Gill Sans',  
+                'Gill Sans MT', ' Calibri',  
+                'Trebuchet MS', 'sans-serif'; 
+        } 
+  
+        td { 
+            background-color: #E4F5D4; 
+            border: 1px solid black; 
+        } 
+  
+        th, 
+        td { 
+            font-weight: bold; 
+            border: 1px solid black; 
+            padding: 10px; 
+            text-align: center; 
+        } 
+  
+        td { 
+            font-weight: lighter; 
+        } 
+    .Table
+    {
+        display: table;
+    }
+    .Title
+    {
+        display: table-caption;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+    }
+    .Heading
+    {
+        display: table-row;
+        font-weight: bold;
+        text-align: center;
+    }
+    .Row
+    {
+        display: table-row;
+    }
+    .Cell
+    {
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .Email {
+        color: red
+    }
+    .Requests {
+        color: #236200
+    }
+    .Delivered {
+        color: #BCD514
+    }
+    .Opens {
+        color: #018690
+    }
+    .UniqueOpens {
+        color: #FBE600
+    }
+    .Clicks {
+        color: #59C1CA
+    }
+    .UniqueClicks {
+        color: #BDD0D1
+    }
+    .Unsubscribes {
+        color: #3D45C0
+    }
+    .Bounces {
+        color: #C042BE
+    }
+    .SpamReports {
+        color: #E04327
+    }
+    .Blocks {
+        color: #AA0202
+    }
+    .BounceDrops {
+        color: #FF748D
+    }
+    .SpamReportDrops {
+        color: #D59E7F
+    }
+    .UnsubscribeDrops {
+        color: #6EC2F9
+    }
+    </style>
+</head>
+<html>
+
+
+<head>
+    <meta charset="UTF-8"> 
+    <title>Email Statistics</title> 
+    <script src= "https://code.jquery.com/jquery-3.5.1.js"></script> 
+    <script src="https://kit.fontawesome.com/dc6878973a.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+    table { 
+        margin: 0 auto; 
+        font-size: large; 
+        border: "0";
+    } 
+    h1 { 
+        text-align: Left; 
+        color: black; 
+        font-size: xx-large; 
+        font-family: 'Gill Sans',  
+            'Gill Sans MT', ' Calibri',  
+            'Trebuchet MS', 'sans-serif'; 
+    } 
+    th, td { 
+        font-weight: bold; 
+        padding: 15px; 
+        text-align: center; 
+        border: "0";
+        
+    } 
+    td { 
+        font-weight: lighter; 
+    }
+    .celltitle {
+        background-color: #88888811
+    }
+    .cellrequest {
+        background-color: #236200
+    }
+    .celldelivered {
+        background-color: #BCD514
+    }
+    .cellopen {
+        background-color: #018690
+    }
+    .celluniqueopen {
+        background-color: #FBE600
+    }
+    .cellclick {
+        background-color: #59C1CA
+    }
+    .celluniqueclick {
+        background-color: #BDD0D1
+    }
+    .cellunsubscribe {
+        background-color: #3D45C0
+    }
+    .cellbounce {
+        background-color: #C042BE
+    }
+    .cellspamreport {
+        background-color: #E04327
+    }
+    .cellblocks {
+        background-color: #AA0202
+    }
+    .cellbouncedrop {
+        background-color: #FF748D
+    }
+    .cellspamreportdrop {
+        background-color: #D59E7F
+    }
+    .cellunsubscribedrop {
+        background-color: #6EC2F9
+    }
+    .heademailtitle {
+
+    }
+    .headrequest {
+        color: #236200;
+
+    }
+    .headdelivered {
+        color: #BCD514;
+
+    }
+    .headopen {
+        color: #018690;
+
+    }
+    .headuniqueopen {
+        color: #FBE600;
+
+    }
+    .headclick {
+        color: #59C1CA;
+
+    }
+    .headuniqueclick {
+        color: #BDD0D1;
+
+    }
+    .headunsubscribe {
+        color: #3D45C0;
+
+    }
+    .headbounce {
+        color: #C042BE;
+
+    }
+    .headspamreport {
+        color: #E04327;
+
+    }
+    .headblock {
+        color: #AA0202;
+
+    }
+    .headbouncedrop {
+        color: #FF748D;
+
+    }
+    .headspamreportdrop {
+        color: #D59E7F;
+
+    }
+    .headunsubscribedrop {
+        color: #6EC2F9;
+
+    }
+    .tooltip {
+    position: relative;
+    /*display: inline-block;
+    border-bottom: 1px dotted black;*/
+    }
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+    }
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Gill Sans',  
+            'Gill Sans MT', ' Calibri',  
+            'Trebuchet MS', 'sans-serif'; 
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -75px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px; 
+}
+.site-footer {
+  /*background: orange;*/
+  font-family: 'Gill Sans',  
+            'Gill Sans MT', ' Calibri',  
+            'Trebuchet MS', 'sans-serif'; 
+  font-size: x-small;
+  text-align: right; 
+  bottom: 0
+}
+.button {
+  background-color: #008FFB; 
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+    </style>
+</head>
+<body style="text-align:center; background-color:#f0f2f7;">
+    <div class="page-wrap">
+    <div class="header" style="text-align: left;">
+        <img src="https://demo.mybackoffice.online/customization/g4/logos/stacked-horiz-color-GSArtboard-4.png" style="max-height:100px;max-width:200px;margin-bottom: 5px;" alt="logo" border="0">
+    </div>
+    <div class="menu">
+        <ul>
+            <li style="background-color:#F11781"><a href="#home"><i class="fas fa-archive"></i>  FILING CABINET</a></li>
+            <li style="background-color: #6634CB"><a href="#news"><i class="fas fa-inbox"></i>  WORKSPACE</a></li>
+            <li style="background-color: #008FFB"><a href="#contact"><i class="fas fa-address-book"></i>  ADDRESS BOOK</a></li>
+            <li style="background-color: #21D2EE"><a href="#about"><i class="fas fa-newspaper"></i>  REPORTS</a></li>
+            <li style="background-color: #03D534"><a href="#home"><i class="fas fa-address-book"></i>  FINANCIAL</a></li>
+            <li style="background-color: #FCAD05"><a href="#news"><i class="fas fa-toolbox"></i>  TOOLBOX</a></li>
+            <li style="background-color: gold"><a href="#contact"><i class="fas fa-user-cog"></i>  ADMIN</a></li>
+            <li style="background-color: grey"><a href="#about"><i class="fas fa-file-invoice-dollar"></i>  BILLING</a></li>
+            <li style="float:right;font-size:large;"><a class="active" href="#about"><i class="fas fa-user-circle"></i></a></li>
+          </ul>
+    </div>
+
+    <!-- HEY KASHIF -->
+    <!-- START TABLE HERE-->
+    <div style="align-content: left; text-align: left;"> 
+        <h1>Email Statistics</h1> 
+        <button class="button"><i class="fas fa-chevron-left"></i><span> BACK</span></button> <button class="button"><i class="fas fa-sync"></i><span> REFRESH</span></button>
+    </div>
+    <br>
+    <br>
+    <section>
+        <!-- TABLE CONSTRUCTION-->
+        <table class="table"> 
+            <!-- HEADING FORMATION -->
+            <tr> 
+                <th class="tooltip heademailtitle celltitle"><i class="fas fa-info"><span class="tooltiptext">Email Title</span></i></th>
+                <th class="tooltip headrequest celltitle"><i class="fas fa-history"><span class="tooltiptext">Requests</span></i></th>
+                <th class="tooltip headdelivered celltitle"><i class="fas fa-envelope"><span class="tooltiptext">Delivered</span></i></th>
+                <th class="tooltip headopen celltitle"><i class="fas fa-envelope-open"><span class="tooltiptext">Emails Opened</span></i></th>
+                <th class="tooltip headuniqueopen celltitle"><i class="fas fa-envelope-open-text"><span class="tooltiptext">Unique Opens</span></i></th>
+                <th class="tooltip headclick celltitle"><i class="fas fa-mouse"><span class="tooltiptext">Links Clicked</span></i></th>
+                <th class="tooltip headuniqueclick celltitle"><i class="fas fa-mouse"><span class="tooltiptext">Unique Clicks</span></i></th>
+                <th class="tooltip headunsubscribe celltitle"><i class="fas fa-user-times"><span class="tooltiptext">Unsubs</span></i></th>
+                <th class="tooltip headbounce celltitle"><i class="fas fa-handshake-slash"><span class="tooltiptext">Bounced Emails</span></i></th>
+                <th class="tooltip headspamreport celltitle"><i class="fas fa-flag"><span class="tooltiptext">Reported as Spam</span></i></th>
+                <th class="tooltip headblock celltitle"><i class="fas fa-minus-circle"><span class="tooltiptext">Blocked</span></i></th>
+                <th class="tooltip headbouncedrop celltitle"><i class="fas fa-exclamation-circle"><span class="tooltiptext">Bounced Drops</span></i></th>
+                <th class="tooltip headspamreportdrop celltitle"><i class="fas fa-trash-alt"><span class="tooltiptext">Spam Drops</span></i></th>
+                <th class="tooltip headunsubscribedrop celltitle"><i class="fas fa-user-slash"><span class="tooltiptext">Unsub Drops</span></i></th>
+            </tr> 
+        </table>
+    </section>
+    <script> 
+        $(document).ready(function () { 
+            // FETCHING DATA FROM JSON FILE 
+            $.getJSON('https://raw.githubusercontent.com/jonfinley/jonfinley/master/test.json',  function (data) { var email = ''; 
+                // ITERATING THROUGH OBJECTS 
+                $.each(data, function (key, value) { 
+                    //CONSTRUCTION OF ROWS HAVING 
+                    // DATA FROM JSON OBJECT 
+                    email += '<tr>'; 
+                    email += '<td class=celltitle>' +  value.emailtitle + '</td>'; 
+                    email += '<td class=cellrequest>' +  value.request + '</td>'; 
+                    email += '<td class=celldelivered>' +  value.delivered + '</td>'; 
+                    email += '<td class=cellopen>' +  value.open + '</td>'; 
+                    email += '<td class=celluniqueopen>' +  value.unique_open + '</td>'; 
+                    email += '<td class=cellclick>' +  value.click + '</td>'; 
+                    email += '<td class=celluniqueclick>' +  value.unique_click + '</td>'; 
+                    email += '<td class=cellunsubscribe>' +  value.unsubscribe + '</td>'; 
+                    email += '<td class=cellbounce>' +  value.bounces + '</td>'; 
+                    email += '<td class=cellspamreport>' +  value.spam_report + '</td>'; 
+                    email += '<td class=cellblocks>' +  value.blocks + '</td>'; 
+                    email += '</tr>'; 
+                }); 
+                //INSERTING ROWS INTO TABLE  
+                $('.table').append(email); 
+            }); 
+        }); 
+    </script> 
+    </div>
+    <!-- END TABLE HERE -->
+    <footer class="site-footer">
+        <p>Version 8.11.1.3256t Copyright ©2002-2020 GURUNETworks, Inc. All rights reserved.<br>Each Office is Independently Owned and Operated</p>
+    </footer>
+</body>
+</html>
+
